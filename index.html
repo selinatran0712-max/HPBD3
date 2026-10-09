@@ -285,6 +285,7 @@
       background: linear-gradient(135deg, #ffffff, #B2D4C3);
       box-shadow: 0 12px 30px rgba(0,0,0,0.15);
       margin: 0 auto;
+      overflow: hidden;
     }
 
     .profile-photo {
@@ -292,6 +293,7 @@
       height: 100%;
       object-fit: cover;
       border-radius: 14px;
+      display: block;
     }
 
     .wish-content-right {
@@ -518,7 +520,8 @@
           
           <!-- Bên trái: Ảnh đại diện Ms Pearl khung hình vuông bo góc -->
           <div class="profile-photo-wrapper">
-            <img src="a.jpg.jpg" alt="Ms Rich Pearl" class="profile-photo">
+            <!-- Thay "a.jpg" bằng đường dẫn ảnh thực tế của bạn hoặc link online -->
+            <img src="a.jpg" alt="Ms Rich Pearl" class="profile-photo" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Rich+Pearl&background=4A7C59&color=fff&size=230';">
           </div>
 
           <!-- Bên phải: Lời chúc -->
