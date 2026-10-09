@@ -29,7 +29,6 @@
 
   <style>
     :root {
-      /* Tông màu xanh nhẹ nhàng */
       --bg-primary: #EBF3F5;
       --bg-secondary: #D4E5ED;
       --accent-blue: #4A7C59;
@@ -37,7 +36,6 @@
       --text-muted: #5A738E;
       --card-bg: rgba(255, 255, 255, 0.92);
       
-      /* Màu hộp quà đỏ nổi bật */
       --gift-red-main: #B71C1C;
       --gift-red-dark: #7F0000;
       --gift-gold: #FFD700;
@@ -66,7 +64,6 @@
       padding: 1.5rem 0;
     }
 
-    /* Hiệu ứng cánh hoa rơi phủ toàn bộ tất cả Slide */
     #petals-container {
       position: fixed;
       top: 0;
@@ -96,7 +93,6 @@
       }
     }
 
-    /* Container chính */
     .wrapper {
       width: 100%;
       max-width: 680px;
@@ -105,7 +101,6 @@
       z-index: 2;
     }
 
-    /* Quản lý các Slide */
     .slide {
       opacity: 0;
       visibility: hidden;
@@ -126,7 +121,7 @@
       pointer-events: auto;
     }
 
-    /* ---------------- SLIDE 1: HỘP QUÀ ---------------- */
+    /* SLIDE 1 */
     .slide-gift-container {
       text-align: center;
       padding: 4rem 2rem;
@@ -155,7 +150,6 @@
       margin-bottom: 2rem;
     }
 
-    /* Thiết kế Hộp Quà */
     .gift-box-wrapper {
       margin: 2rem 0;
       cursor: pointer;
@@ -197,7 +191,6 @@
       transition: transform 0.6s ease;
     }
 
-    /* Nơ vàng trang trí */
     .ribbon-v {
       position: absolute;
       width: 24px;
@@ -242,7 +235,6 @@
       transform: rotate(-45deg);
     }
 
-    /* Mở nắp khi click */
     .gift-box.open .gift-lid {
       transform: translateY(-85px) rotate(-22deg);
     }
@@ -259,8 +251,7 @@
       50% { opacity: 1; }
     }
 
-
-    /* ---------------- SLIDE 2: HÌNH VUÔNG BÊN TRÁI & LỜI CHÚC BÊN PHẢI ---------------- */
+    /* SLIDE 2 */
     .wish-card {
       background: var(--card-bg);
       backdrop-filter: blur(12px);
@@ -276,16 +267,20 @@
       gap: 2.2rem;
     }
 
-    /* Khung hình Vuông Ms Pearl ở bên trái */
+    /* Khung chứa ảnh hiển thị ổn định */
     .profile-photo-wrapper {
-      flex: 0 0 230px;
-      height: 230px;
+      flex: 0 0 220px;
+      width: 220px;
+      aspect-ratio: 1 / 1;
       border-radius: 20px;
-      padding: 7px;
+      padding: 6px;
       background: linear-gradient(135deg, #ffffff, #B2D4C3);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
       margin: 0 auto;
       overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .profile-photo {
@@ -307,7 +302,6 @@
       color: var(--text-dark);
       line-height: 1.1;
       margin-bottom: 0.2rem;
-      white-space: nowrap;
     }
 
     .recipient-name {
@@ -327,7 +321,6 @@
       margin-bottom: 2rem;
     }
 
-    /* Responsive cho màn hình nhỏ/điện thoại ở Slide 2 */
     @media (max-width: 600px) {
       .wish-layout {
         flex-direction: column;
@@ -337,17 +330,15 @@
         text-align: center;
       }
       .profile-photo-wrapper {
-        flex: 0 0 210px;
-        width: 210px;
-        height: 210px;
+        flex: none;
+        width: 190px;
       }
       .recipient-name {
         font-size: 1.4rem;
       }
     }
 
-
-    /* ---------------- SLIDE 3: THIỆP MỜI CHI TIẾT ---------------- */
+    /* SLIDE 3 */
     .invitation-card {
       background: var(--card-bg);
       backdrop-filter: blur(12px);
@@ -423,7 +414,6 @@
       margin-top: 4px;
     }
 
-    /* Câu cảm ơn */
     .thank-you-note {
       font-family: var(--font-script);
       font-size: 1.8rem;
@@ -431,7 +421,6 @@
       margin-bottom: 1.8rem;
     }
 
-    /* Buttons Actions */
     .btn-group {
       display: flex;
       gap: 15px;
@@ -451,12 +440,12 @@
       transition: all 0.3s ease;
       cursor: pointer;
       flex: 1;
+      border: none;
     }
 
     .btn-primary {
       background: #4A7C59;
       color: #FFFFFF;
-      border: none;
       box-shadow: 0 5px 15px rgba(74, 124, 89, 0.35);
     }
 
@@ -485,7 +474,6 @@
 </head>
 <body>
 
-  <!-- Hiệu ứng Nền Cánh hoa rơi liên tục phủ rộng tất cả các Slide -->
   <div id="petals-container"></div>
 
   <div class="wrapper">
@@ -513,161 +501,25 @@
       </div>
     </div>
 
-    <!-- SLIDE 2: BÊN TRÁI LÀ HÌNH VUÔNG MS PEARL, BÊN PHẢI LÀ LỜI CHÚC -->
+    <!-- SLIDE 2: LỜI CHÚC & HÌNH ẢNH -->
     <div class="slide" id="slide2">
       <div class="wish-card">
         <div class="wish-layout">
           
-          <!-- Bên trái: Ảnh đại diện Ms Pearl khung hình vuông bo góc -->
+          <!-- Đường dẫn ảnh đã cập nhật link online dự phòng trực tiếp -->
           <div class="profile-photo-wrapper">
-            <!-- Thay "a.jpg" bằng đường dẫn ảnh thực tế của bạn hoặc link online -->
-            <img src="a.jpg" alt="Ms Rich Pearl" class="profile-photo" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Rich+Pearl&background=4A7C59&color=fff&size=230';">
+            <img 
+              src="a.jpg" 
+              alt="Ms Rich Pearl" 
+              class="profile-photo" 
+              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';"
+            >
           </div>
 
-          <!-- Bên phải: Lời chúc -->
           <div class="wish-content-right">
             <h1 class="wish-banner">Happy Birthday</h1>
             <div class="recipient-name">MS RICH PEARL</div>
 
             <p class="wish-text">
               Chúc Ms Rich Pearl tuổi mới luôn tỏa sáng rạng ngời, ngập tràn sức khỏe, hạnh phúc và thành công rực rỡ trên mọi hành trình!
-            </p>
-
-            <div>
-              <button onclick="goToSlide3()" class="btn btn-primary" style="flex: none; width: 100%;">
-                <i class="fa-envelope-open-text fa-solid"></i> Xem Thiệp Mời
-              </button>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <!-- SLIDE 3: THIỆP MỜI CHI TIẾT -->
-    <div class="slide" id="slide3">
-      <div class="invitation-card">
-        
-        <div class="invitation-title">Thiệp Mời Sinh Nhật</div>
-        <div class="invitation-subtitle">Trân Trọng Kính Mời Quý Khách</div>
-
-        <div class="divider"></div>
-
-        <div class="event-info">
-          <div class="event-info-item">
-            <i class="fa-regular fa-clock"></i>
-            <div><strong>12:00</strong> | Thứ Hai</div>
-          </div>
-
-          <div class="event-info-item">
-            <i class="fa-regular fa-calendar-days"></i>
-            <div>Ngày <strong>12 / 10 / 2026</strong></div>
-          </div>
-
-          <div class="event-info-item" style="align-items: flex-start;">
-            <i class="fa-solid fa-location-dot" style="margin-top: 4px;"></i>
-            <div>
-              <div class="venue-title">WIMI Coffee</div>
-              <div class="venue-address">53A Nguyễn Du, P. Bến Nghé, Quận 1, TP. HCM</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Câu cảm ơn -->
-        <div class="thank-you-note">
-          Cảm ơn sự tham dự của quý khách mời
-        </div>
-
-        <!-- Buttons Action -->
-        <div class="btn-group">
-          <a href="https://www.google.com/maps/search/?api=1&query=WIMI+Coffee+53A+Nguy%E1%BB%85n+Du+Qu%E1%BA%ADn+1" target="_blank" class="btn btn-primary">
-            <i class="fa-solid fa-map-location-dot"></i> Chỉ Đường Google Maps
-          </a>
-        </div>
-      </div>
-
-      <footer>
-        <p>© 2026 MS RICH PEARL. All Rights Reserved.</p>
-      </footer>
-    </div>
-
-  </div>
-
-  <script>
-    // 1. Tạo hiệu ứng cánh hoa bay liên tục
-    function createPetals() {
-      const container = document.getElementById('petals-container');
-      const petalCount = 20;
-
-      for (let i = 0; i < petalCount; i++) {
-        const petal = document.createElement('div');
-        petal.className = 'petal';
-        
-        const size = Math.random() * 12 + 8;
-        petal.style.width = `${size}px`;
-        petal.style.height = `${size * 1.25}px`;
-        
-        petal.style.left = `${Math.random() * 100}%`;
-        petal.style.animationDelay = `${Math.random() * 8}s`;
-        petal.style.animationDuration = `${Math.random() * 4 + 7}s`;
-
-        container.appendChild(petal);
-      }
-    }
-
-    // 2. Chuyển từ Slide 1 -> Slide 2 khi bấm Hộp quà
-    let isOpen = false;
-    function openGiftAndShowWishes() {
-      if (isOpen) return;
-      isOpen = true;
-
-      const giftBox = document.getElementById('giftBox');
-      const slide1 = document.getElementById('slide1');
-      const slide2 = document.getElementById('slide2');
-
-      // Mở nắp quà
-      giftBox.classList.add('open');
-
-      // Bắn pháo hoa Confetti
-      if (typeof confetti === 'function') {
-        confetti({
-          particleCount: 90,
-          spread: 75,
-          origin: { y: 0.6 },
-          colors: ['#4A7C59', '#FFD700', '#B71C1C', '#ffffff']
-        });
-      }
-
-      // Chuyển sang Slide 2
-      setTimeout(() => {
-        slide1.classList.remove('active');
-        slide2.classList.add('active');
-      }, 650);
-    }
-
-    // 3. Chuyển từ Slide 2 -> Slide 3 (Thiệp mời)
-    function goToSlide3() {
-      const slide2 = document.getElementById('slide2');
-      const slide3 = document.getElementById('slide3');
-
-      slide2.classList.remove('active');
-      slide3.classList.add('active');
-
-      // Thêm pháo hoa chúc mừng khi chuyển thiệp
-      if (typeof confetti === 'function') {
-        confetti({
-          particleCount: 50,
-          spread: 60,
-          origin: { y: 0.7 },
-          colors: ['#4A7C59', '#FFD700']
-        });
-      }
-    }
-
-    // Khởi tạo
-    document.addEventListener('DOMContentLoaded', () => {
-      createPetals();
-    });
-  </script>
-</body>
-</html>
+            </
